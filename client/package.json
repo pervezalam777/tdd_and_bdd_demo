@@ -4,8 +4,18 @@
   "description": "This is normal web application which as basic login functionality",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start",
+    "start": "lite-server ."
   },
   "author": "Pervez alam",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.5.0",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.3.1",
+    "karma-jasmine-html-reporter": "^1.5.4",
+    "karma-spec-reporter": "0.0.32",
+    "lite-server": "^2.5.4"
+  }
 }
