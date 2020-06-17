@@ -71,7 +71,11 @@ class LoginView {
     return this;
   }
 
-  displayError(show = false, message){
+  displayError(show = false, message = ''){
+    this._elError.innerText = message; 
+
+    let display = show === true ? "block" : "none";
+    this._elError.style.display = display;
     return this;
   }
 

@@ -151,6 +151,17 @@ describe('Login view', () => {
       expect(elError.innerText).toEqual(errorMessage);
 
     })
+
+    it('should remove error message from screen', () => {
+      const errorMessage = "Invalid Credential";
+      loginViewInstance.displayError(true, errorMessage);
+
+      const elError = document.getElementById('error');
+      expect(elError.style.display).toEqual('block');
+     
+      loginViewInstance.displayError(false);
+      expect(elError.style.display).toEqual('none');
+    })
   });
 
   describe('reset', () => {
