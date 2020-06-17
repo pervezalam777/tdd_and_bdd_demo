@@ -1,6 +1,8 @@
 //@ts-nocheck
+import { SCREENS } from '../../constants/screenConst.js'
 class LoginPresenter {
-
+  screenName = SCREENS.LOGIN
+  
   constructor(){ }
 
   init(opt){
