@@ -131,7 +131,26 @@ describe('Login view', () => {
   });
 
   describe('error', () => {
+    const validObject = { 
+      handleChange: (e) => {  },
+      handleSubmit: (e) => {}
+    }
 
+    beforeEach(()=>{ 
+      loginViewInstance
+        .init(container, validObject)
+        .render();
+    });
+
+    it('should be visible with message passed down from server', () => {
+      const errorMessage = "Invalid Credential";
+      loginViewInstance.displayError(true, errorMessage);
+
+      const elError = document.getElementById('error');
+      expect(elError.style.display).toEqual('block');
+      expect(elError.innerText).toEqual(errorMessage);
+
+    })
   });
 
   describe('reset', () => {

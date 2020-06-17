@@ -9,7 +9,7 @@ const template = `
     <input type="password" id="password" class="form-input" required />
     <span class>(should be 8 character long, 1 Uppercase, 1 lowercase, 1 special character required.)
     <br/>
-    <span id="error" class="error"></span>
+    <span id="error" class="error" style="display:none"></span>
     <button type="submit" id="login">Login<button>
   </form>
 `
@@ -85,7 +85,11 @@ class LoginView {
       this._elUserName.removeEventListener('change', this.onChange);
       this._elPassword.removeEventListener('change', this.onChange);
       this._elLoginButton.removeEventListener('click', this.onSubmit);
+      this._elLoginButton = undefined;
+      this._elPassword = undefined;
+      this._elUserName = undefined;
     }
+    this._elError = undefined;
   }
 
 }
