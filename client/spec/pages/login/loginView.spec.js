@@ -82,6 +82,15 @@ describe('Login view', () => {
         expect(formElement).toBeTruthy();
       }
     });
+    
+    it('should not display plain text password on screen', () => {
+      loginViewInstance.render();
+      let elPassword = document.getElementById('password');
+      elPassword.value = "password123";
+      
+      expect(elPassword.type).toEqual('password');
+    })
+    //TODO add unit test case for password check it should not be visible as plain text.
   });
 
   describe('events', () => {
@@ -166,7 +175,7 @@ describe('Login view', () => {
 
   describe('reset', () => {
     const validObject = { 
-      handleChange: (e) => {  },
+      handleChange: (e) => {},
       handleSubmit: (e) => {}
     }
 
@@ -176,6 +185,19 @@ describe('Login view', () => {
         .render();
     });
     
+    it('should remove input values from username and password field', () => {
+      const elUserName = document.getElementById('username');
+      const elPassword = document.getElementById('password');
+
+      elUserName.value = "pervez";
+      elPassword.value = "Password123";
+
+      loginViewInstance.resetForm();
+
+      expect(elUserName.value).toEqual('');
+      expect(elPassword.value).toEqual('');
+
+    })
   });
 
 });

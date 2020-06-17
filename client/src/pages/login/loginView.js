@@ -22,7 +22,7 @@ class LoginView {
   constructor() {}
 
   init(container, opt) {
-    if(this.isValidContainer(container) && this.isValidOptionObject(opt)) {
+    if(this._isValidContainer(container) && this._isValidOptionObject(opt)) {
       this.container  = container;
       this.onChange = opt.handleChange;
       this.onSubmit = opt.handleSubmit;
@@ -31,11 +31,11 @@ class LoginView {
     throw new Error("Invalid arguments passed")
   }
 
-  isValidContainer(container){
+  _isValidContainer(container){
     return (container && container.tagName && container.tagName === "DIV")
   }
 
-  isValidOptionObject(options){
+  _isValidOptionObject(options){
     let functionsProps = ['handleChange', 'handleSubmit'];
     if(options && typeof options === 'object'){
       for(let item of functionsProps){
@@ -50,24 +50,27 @@ class LoginView {
 
   render(){
     this.container.innerHTML = template;
+
     this._elError = document.getElementById('error');
+    this._elUserName = document.getElementById('username');
+    this._elPassword = document.getElementById('password');
+    this._elLoginButton = document.getElementById('login');
+
     return this;
   }
 
   assignEvents(){
-    this._elUserName = document.getElementById('username');
     this._elUserName.addEventListener('change', this.onChange);
-
-    this._elPassword = document.getElementById('password');
     this._elPassword.addEventListener('change', this.onChange);
-
-    this._elLoginButton = document.getElementById('login');
     this._elLoginButton.addEventListener('click', this.onSubmit);
+
+    return this;
   }
 
   resetForm(){
-    this._elUserName = '';
-    this._elPassword = '';
+    this._elUserName.value = '';
+    this._elPassword.value = '';
+    
     return this;
   }
 
@@ -92,8 +95,8 @@ class LoginView {
       this._elLoginButton = undefined;
       this._elPassword = undefined;
       this._elUserName = undefined;
+      this._elError = undefined;
     }
-    this._elError = undefined;
   }
 
 }

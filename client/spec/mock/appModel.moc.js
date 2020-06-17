@@ -1,13 +1,7 @@
 //@ts-nocheck
-class AppModel {
-  _userDetails = null
-  _currentScreen = null
-
-  constructor(){}
-
+class AppModelMock {
   init(){}
   set userDetails(data){}
-  
   get userName(){}
   get userToken(){}
   get userEmail(){}
@@ -17,6 +11,8 @@ class AppModel {
   get currentScreen(){}
 }
 
-export const AppModelFactory = {
-  create: () => new AppModel()
+export const AppModelMockFactory = {
+  create: () => {
+    return new AppModelMock();
+  }
 }

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { LoginModelFactory } from '../../../src/pages/login/loginModel.js'
+import { LoginModelFactory } from '../../../src/pages/login/loginModel.js';
 
 describe('Login model', ()=>{
 

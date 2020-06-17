@@ -8,6 +8,7 @@ module.exports = function(config) {
     files: [
       { pattern: 'spec/**/*.spec.js', type:'module' },
       { pattern: 'src/**/*.js', type:'module', included: false},
+      { pattern: 'spec/**/*.moc.js', type:'module', included: false},
       { pattern: 'node_modules/**/*.js', type:'module', included:false}
     ],
 
