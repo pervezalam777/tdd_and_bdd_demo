@@ -165,7 +165,17 @@ describe('Login view', () => {
   });
 
   describe('reset', () => {
+    const validObject = { 
+      handleChange: (e) => {  },
+      handleSubmit: (e) => {}
+    }
 
+    beforeEach(()=>{ 
+      loginViewInstance
+        .init(container, validObject)
+        .render();
+    });
+    
   });
 
 });
