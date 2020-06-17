@@ -125,7 +125,7 @@ describe('Login view', () => {
       fieldsAndValues.forEach(item => {
         let element = document.getElementById(item.field);
         element.value = item.value;
-        element.dispatchEvent(new CustomEvent('change'));
+        element.dispatchEvent(new CustomEvent('input'));
         expect(inputValue).toEqual(item.value)
         //expect(validObject.handleChange).toHaveBeenCalled();
       });

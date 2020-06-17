@@ -11,3 +11,7 @@ class LoginService {
     return response;
   }
 }
+
+export const LoginServiceFactory = {
+  create:() => new LoginService()
+}

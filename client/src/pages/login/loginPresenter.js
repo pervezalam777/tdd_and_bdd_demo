@@ -13,7 +13,8 @@ class LoginPresenter {
     this._loginService = opt.loginService;
 
     this._loginModel.init();
-    this._initView(opt.container)
+    this._initView(opt.container);
+    return this;
   }
 
   handleChange = (e) => {

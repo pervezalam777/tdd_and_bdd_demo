@@ -2,15 +2,14 @@
 const template = `
   <form id="loginForm" class="form">
     <h1 class="from-heading">Login</h1>
-    <label for="username" class="form-label">Username: </label>
+    <label for="username" class="form-label">User name: </label>
     <input type="text" id="username" class="form-input" required />
     <br/>
     <label for="password" class="form-label">password: </label>
     <input type="password" id="password" class="form-input" required />
-    <span class>(should be 8 character long, 1 Uppercase, 1 lowercase, 1 special character required.)
     <br/>
     <span id="error" class="error" style="display:none"></span>
-    <button type="submit" id="login">Login<button>
+    <button type="submit" id="login">Login</button>
   </form>
 `
 class LoginView {
@@ -60,8 +59,8 @@ class LoginView {
   }
 
   assignEvents(){
-    this._elUserName.addEventListener('change', this.onChange);
-    this._elPassword.addEventListener('change', this.onChange);
+    this._elUserName.addEventListener('input', this.onChange);
+    this._elPassword.addEventListener('input', this.onChange);
     this._elLoginButton.addEventListener('click', this.onSubmit);
 
     return this;
