@@ -1,5 +1,6 @@
 //@ts-nocheck
 import { LoginBuilder } from './pages/login/loginBuilder.js';
+import { HomeBuilder } from './pages/dashboard/homeBuilder.js';
 import { AppModelFactory } from './model/appModel.js';
 import { LOGIN_SUCCESS, LOGOUT } from './constants/eventConst.js'
 import { SCREENS } from './constants/screenConst.js'
@@ -48,15 +49,19 @@ export class ApplicationController {
   }
 
   buildLoginPage(){
-    const builder = new LoginBuilder();
+    this.builder(LoginBuilder);
+  }
+
+  buildHomePage(){
+    this.builder(HomeBuilder);
+  }
+
+  builder(classRef){
+    const builder = new classRef();
     this._currentScreen = builder
                             .withAppModel(this._appModel)
                             .withDOMContainer(this._container)
                             .build();
-  }
-
-  buildHomePage(){
-    console.log("HOME BUILDER IMPLEMENTATION PENDING")
   }
 
   handleLogout = () => {

@@ -71,7 +71,9 @@ class AppModel {
 
   set userDetails(data){
     this._userDetails = data;
-    this.dispatchEvent({type:LOGIN_SUCCESS});
+    setTimeout(() => {
+      this.dispatchEvent({type:LOGIN_SUCCESS});
+    }, 0)
   }
   
   get userName(){

@@ -1,4 +1,7 @@
 //@ts-nocheck
+
+import { isValidContainer, hasPropertyWithType } from '../../utils/utils.js';
+
 const template = `
   <form id="loginForm" class="form">
     <h1 class="from-heading">Login</h1>
@@ -21,30 +24,18 @@ class LoginView {
   constructor() {}
 
   init(container, opt) {
-    if(this._isValidContainer(container) && this._isValidOptionObject(opt)) {
-      this.container  = container;
-      this.onChange = opt.handleChange;
-      this.onSubmit = opt.handleSubmit;
-      return this;
+    if(!isValidContainer(container) || !this._isValidOptionObject(opt)) {
+      throw new Error("Invalid arguments passed")
     } 
-    throw new Error("Invalid arguments passed")
-  }
-
-  _isValidContainer(container){
-    return (container && container.tagName && container.tagName === "DIV")
+    this.container  = container;
+    this.onChange = opt.handleChange;
+    this.onSubmit = opt.handleSubmit;
+    return this;
   }
 
   _isValidOptionObject(options){
     let functionsProps = ['handleChange', 'handleSubmit'];
-    if(options && typeof options === 'object'){
-      for(let item of functionsProps){
-        if(!options[item] && !(typeof options[item] === 'function')){
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
+    return hasPropertyWithType(options, functionsProps, 'function');
   }
 
   render(){
@@ -88,8 +79,8 @@ class LoginView {
     //Note: checking only one element existence
     //since all the other element assigned in same method call.
     if(this._elUserName != null){
-      this._elUserName.removeEventListener('change', this.onChange);
-      this._elPassword.removeEventListener('change', this.onChange);
+      this._elUserName.removeEventListener('input', this.onChange);
+      this._elPassword.removeEventListener('input', this.onChange);
       this._elLoginButton.removeEventListener('click', this.onSubmit);
       this._elLoginButton = undefined;
       this._elPassword = undefined;
