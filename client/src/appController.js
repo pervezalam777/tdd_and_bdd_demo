@@ -1,6 +1,5 @@
 //@ts-nocheck
 import { LoginBuilder } from './pages/login/loginBuilder.js';
-import { HomeBuilder } from './pages/dashboard/homeBuilder.js';
 import { AppModelFactory } from './model/appModel.js';
 import { LOGIN_SUCCESS, LOGOUT } from './constants/eventConst.js'
 import { SCREENS } from './constants/screenConst.js'
@@ -52,7 +51,8 @@ export class ApplicationController {
     this.builder(LoginBuilder);
   }
 
-  buildHomePage(){
+  async buildHomePage(){
+    const { HomeBuilder } =  await import('./pages/dashboard/homeBuilder.js')
     this.builder(HomeBuilder);
   }
 
