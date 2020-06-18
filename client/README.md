@@ -26,3 +26,13 @@
 # For development environment
 > npm install lite-server --save-dev
 ```
+## Design Principle
+* This application designed keeping SOLID principle in mind. 
+
+## Design Patterns
+This application uses the following design pattern to some extent
+* Inversion of Control
+* Dependency Injection
+* Builder
+* Simple Factory
+* Observer 
