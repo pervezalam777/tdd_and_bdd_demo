@@ -21,7 +21,7 @@ describe('Login model', ()=>{
     expect(loginModelInstance._password).toEqual('pervez1');
   })
 
-  it('should set non-string value', () => {
+  it('should not store non-string value', () => {
     let falseValues = [
       {username:null, password:null},
       {username:undefined, password:undefined},

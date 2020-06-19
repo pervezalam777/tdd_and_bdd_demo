@@ -22,8 +22,7 @@ class LoginPresenter {
   handleChange = (e) => {
     this._loginModel[e.target.id] = e.target.value;
 
-    //NOTE: No validation applied on login for based on user input
-    // as of now. 
+    //NOTE: No validation applied on login for based on user input as of now. 
     // It might only be required username as email id and password policy applied.
   }
 
