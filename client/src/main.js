@@ -1,5 +1,5 @@
 //@ts-nocheck
-
+import "babel-polyfill";
 import { ApplicationController } from './appController.js';
 
 function bootstrap(){

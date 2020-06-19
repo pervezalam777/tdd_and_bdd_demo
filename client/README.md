@@ -24,7 +24,7 @@
 > npm install jasmine-core karma karma-chrome-launcher karma-jasmine karma-jasmine-html-reporter karma-spec-reporter --save-dev
 
 # For development environment
-> npm install lite-server --save-dev
+> npm install parcel-bundler --save-dev
 ```
 
 ## Test Environment

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "start": "lite-server .",
-    "start:e2e": "lite-server -c bs-config.js"
+    "start": "parcel index.html --port 3000",
+    "prod": "parcel build index.html"
   },
   "author": "Pervez alam",
   "license": "ISC",
@@ -18,6 +18,9 @@
     "karma-jasmine": "^3.3.1",
     "karma-jasmine-html-reporter": "^1.5.4",
     "karma-spec-reporter": "0.0.32",
-    "lite-server": "^2.5.4"
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
   }
 }

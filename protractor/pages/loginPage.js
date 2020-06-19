@@ -1,10 +1,17 @@
 //@ts-nocheck
+
+let delayFirstLaunch = true;
+
 function LoginPage(){
   let username_input = element(by.id('username'));
   let password_input = element(by.id('password'));
   let loginButton = element(by.id('login'));
 
   this.get = function(url) {
+    if(delayFirstLaunch){
+      delayFirstLaunch = false;
+      browser.sleep(4000)
+    }
     browser.waitForAngularEnabled(false);
     browser.get(url);
   }

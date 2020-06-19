@@ -37,4 +37,4 @@ app.post('/login', (req, res) => {
   res.status(200).send(user);
 })
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Rest API server running on http://localhost:${port}`))

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "TDD, BDD, E2E demo application",
   "scripts": {
-    "e2e": "concurrently -k \"cd server && npm start\" \"cd client && npm run start:e2e\" \"webdriver-manager start\" \"cd protractor && protractor conf/conf.js\""
+    "test": "concurrently -k \"webdriver-manager start\" \"cd client && npm run start\" \"cd server && npm start\"  \"cd protractor && protractor conf/conf.js\"",
+    "dev": "concurrently -k \"cd client && npm run start\" \"cd server && npm start\"",
+    "client:test": "cd client && npm test"
   },
   "repository": {
     "type": "git",
