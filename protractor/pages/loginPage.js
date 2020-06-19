@@ -28,7 +28,6 @@ function LoginPage(){
 
   this.verifySuccess = function(){
     let output = element(by.id('logout'));
-    console.log("dashboard.... ", output);
     expect(output).toBeTruthy();
   }
 }

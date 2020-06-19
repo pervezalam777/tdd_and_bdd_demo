@@ -1,0 +1,32 @@
+{
+  "name": "tdd_and_bdd_demo",
+  "version": "1.0.0",
+  "description": "TDD, BDD, E2E demo application",
+  "scripts": {
+    "e2e": "concurrently -k \"cd server && npm start\" \"cd client && npm run start:e2e\" \"webdriver-manager start\" \"cd protractor && protractor conf/conf.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pervezalam777/tdd_and_bdd_demo.git"
+  },
+  "keywords": [
+    "TDD",
+    "BDD",
+    "E2E",
+    "Design",
+    "Pattern",
+    "ES6",
+    "async",
+    "await",
+    "dynamic import"
+  ],
+  "author": "Pervez Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pervezalam777/tdd_and_bdd_demo/issues"
+  },
+  "homepage": "https://github.com/pervezalam777/tdd_and_bdd_demo#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}

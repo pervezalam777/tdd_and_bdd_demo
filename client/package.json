@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "start": "lite-server ."
+    "start": "lite-server .",
+    "start:e2e": "lite-server -c bs-config.js"
   },
   "author": "Pervez alam",
   "license": "ISC",
