@@ -47,6 +47,10 @@ The following command will start karma in development mode which means any chang
 ```
 NOTE: Some times first test case gets failed, it seems concurrently picks protractor before other parallel command execution completes. ***Will find solution for the same and will update the script.
 
+
+
+
+
 ## Out of scope 
 This is very basic login functionality so did not add following feature which may or may not implement in near future
 1) User name validation for email id (only if user name required to be email)
@@ -56,3 +60,43 @@ This is very basic login functionality so did not add following feature which ma
 5) Accessibility not tested properly though it should work to some extent.
 6) Keeping user session even user reload the application or close the browser and come back again. This feature require cookie or local storage where user token can be preserved.
 7) JWT token is best approach for stateless session and it may carry expiry time which can be checked at both end client and server.
+
+## Client Unit tested for
+
+```
+Login model
+  should return serialized user credential so that it can be send to server
+  should return null server object if username and password did not set before or blank
+  should not be able to set non-string error message
+  should be able to set and get error message
+  should not store non-string value
+  should store username and password as valid strings
+
+Login view
+  initialization
+    should throw error if invalid options passed
+    should except a valid object
+  render
+    should add login form in given container
+    should not display plain text password on screen
+    should set focus on username field on render
+  events
+    should be assigned on login button to submit the form
+    should be assigned on input fields to capture changes
+  error
+    should be visible with message passed down from server
+    should remove error message from screen
+  reset
+    should remove input values from username and password field
+  
+Login Presenter
+  initialization
+    should be require login view, login model, login service, and application model
+    should throw error if invalid initialization object passed
+  user input
+    should be stored in the login model
+  login
+    should log in a valid user
+    should show login error if login unsuccessful
+```
+
