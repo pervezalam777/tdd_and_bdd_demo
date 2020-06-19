@@ -46,6 +46,8 @@ class LoginView {
     this._elPassword = document.getElementById('password');
     this._elLoginButton = document.getElementById('login');
 
+    this._elUserName.focus();
+    
     return this;
   }
 
