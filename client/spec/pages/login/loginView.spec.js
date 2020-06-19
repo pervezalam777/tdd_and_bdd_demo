@@ -83,6 +83,14 @@ describe('Login view', () => {
       }
     });
     
+    it('should set focus on username field on render', () => {
+      let obj = loginViewInstance.render();
+      expect(obj).toBe(loginViewInstance);
+
+      let elUsername = document.getElementById("username");
+      expect(document.activeElement).toEqual(elUsername);
+    })
+
     it('should not display plain text password on screen', () => {
       loginViewInstance.render();
       let elPassword = document.getElementById('password');
@@ -90,7 +98,7 @@ describe('Login view', () => {
       
       expect(elPassword.type).toEqual('password');
     })
-    //TODO add unit test case for password check it should not be visible as plain text.
+    
   });
 
   describe('events', () => {
@@ -113,16 +121,17 @@ describe('Login view', () => {
       // https://github.com/facebook/jest/issues/5268
       // https://stackoverflow.com/questions/9396538/issues-with-jasmines-spyon-tohavebeencalled-method
       
-      // spyOn(validObject, 'handleChange');
-
+      //const handleChangeSpy = spyOn(validObject, 'handleChange').and.callThrough();
+      
       loginViewInstance.assignEvents();
       
       let fieldsAndValues = [
         {field:'username', value:'pervez'},
         {field:'password', value:'password123'}
       ]
-
+      
       fieldsAndValues.forEach(item => {
+
         let element = document.getElementById(item.field);
         element.value = item.value;
         element.dispatchEvent(new CustomEvent('input'));
