@@ -26,6 +26,10 @@
 # For development environment
 > npm install lite-server --save-dev
 ```
+
+## Test Environment
+Chrome 83.0.4103.97 (Windows 10)
+
 ## Design Principle
 * This application designed keeping SOLID principle in mind. 
 

@@ -12,20 +12,28 @@ module.exports = function(config) {
       { pattern: 'node_modules/**/*.js', type:'module', included:false}
     ],
 
-    exclude: [
-    ],
-
     preprocessors: {
+      'src/**/*.js': ['coverage']
+    },
+
+    coverageReporter: {
+      dir: 'coverage',
+      includeAllSources: true,
+      reporters: [
+          { type: 'html' },
+          { type: 'json', file: 'coverage.json' },
+      ],
     },
 
     plugins: [
         require('karma-jasmine'),
         require('karma-chrome-launcher'),
         require('karma-spec-reporter'),
-        require('karma-jasmine-html-reporter')
+        require('karma-jasmine-html-reporter'),
+        require("karma-coverage")
     ],
     
-    reporters: ['spec','kjhtml'],
+    reporters: ['spec','kjhtml', 'coverage'],
 
     port: 9876,
 

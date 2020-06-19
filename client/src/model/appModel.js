@@ -76,10 +76,10 @@ class AppModel {
     }, 0)
   }
   
-  get userName(){
+  get userName() { 
     return this._userDetails.username;
   }
-  get userToken(){
+  get userToken() {
     return this._userDetails.token;
   }
  
