@@ -8,11 +8,11 @@ const template = `
     <label for="username" class="form-label">User name: </label>
     <input type="text" id="username" class="form-input" required />
     <br/>
-    <label for="password" class="form-label">password: </label>
+    <label for="password" class="form-label">Password: </label>
     <input type="password" id="password" class="form-input" required />
     <br/>
     <span id="error" class="error" style="display:none"></span>
-    <button type="submit" id="login">Login</button>
+    <button type="submit" id="login" class="login-btn">Login</button>
   </form>
 `
 class LoginView {

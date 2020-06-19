@@ -3,11 +3,11 @@ import { isValidContainer, hasPropertyWithType } from '../../utils/utils.js';
 
 const getTemplate = (username) => {
   return `
-  <div>
+  <div class="container">
     <header>
       <nav>
-        <span>${username}</span>
-        <button id="logout">logout</button>
+        <span class="user-profile">${username}</span>
+        <button id="logout" class="logout-btn">logout</button>
       </nav>
     </header>
     <main>
