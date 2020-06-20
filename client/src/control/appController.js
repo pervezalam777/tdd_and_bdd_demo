@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { LoginBuilder } from './pages/login/loginBuilder.js';
-import { AppModelFactory } from './model/appModel.js';
-import { LOGIN_SUCCESS, LOGOUT } from './constants/eventConst.js'
-import { SCREENS } from './constants/screenConst.js'
+import { LoginBuilder } from '../pages/login/loginBuilder.js';
+import { AppModelFactory } from '../model/appModel.js';
+import { LOGIN_SUCCESS, LOGOUT } from '../constants/eventConst.js'
+import { SCREENS } from '../constants/screenConst.js'
 
 //NOTE: There could be dynamic implementation of adding and removing screens
 // similar each screen (page) can register or unregister events
@@ -52,7 +52,7 @@ export class ApplicationController {
   }
 
   async buildHomePage(){
-    const { HomeBuilder } =  await import('./pages/dashboard/homeBuilder.js')
+    const { HomeBuilder } =  await import('../pages/dashboard/homeBuilder.js')
     this.builder(HomeBuilder);
   }
 
@@ -65,7 +65,7 @@ export class ApplicationController {
   }
 
   handleLogout = () => {
-    this.destroyPreviousScreen(this._currentScreen);
+    this.destroyPreviousScreen(this._currentScreen.screenName);
     this.changeScreen(SCREENS.LOGIN);
   }
 

@@ -1,6 +1,7 @@
 //@ts-nocheck
 
-import { SCREENS } from '../../constants/screenConst.js'
+import { SCREENS } from '../../constants/screenConst.js';
+import { LOGOUT } from '../../constants/eventConst.js';
 
 class HomePresenter {
   screenName = SCREENS.HOME
@@ -24,7 +25,7 @@ class HomePresenter {
   }
 
   handleLogout = (e) => {
-
+    this._appModel.dispatchEvent({type:LOGOUT});
   }
 
   _initView(container){
@@ -35,6 +36,15 @@ class HomePresenter {
       })
       .render()
       .assignEvents();
+  }
+
+  destroy(){
+    if(this._homeView){
+      this._homeView.destroy();
+    }
+
+    this._homeView = null;
+    this._appModel = null;
   }
 }
 

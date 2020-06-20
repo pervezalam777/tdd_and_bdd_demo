@@ -17,7 +17,12 @@
  *  dispatchEvent(event:AppEvent)
  * }
  */
-import { LOGIN_SUCCESS } from '../constants/eventConst.js'
+import { LOGIN_SUCCESS } from '../constants/eventConst.js';
+import { hasPropertyWithType } from '../utils/utils.js';
+
+const userDetailsRequiredProperties = [
+  'username', 'token', 'email', 'role'
+]
 
 class AppModel {
   _userDetails = null 
@@ -70,6 +75,9 @@ class AppModel {
   }
 
   set userDetails(data){
+    if(!hasPropertyWithType(data, userDetailsRequiredProperties, 'string')){
+      throw new Error('invalid user object');
+    }
     this._userDetails = data;
     setTimeout(() => {
       this.dispatchEvent({type:LOGIN_SUCCESS});
@@ -89,6 +97,11 @@ class AppModel {
 
   get userRole(){
     return this._userDetails.role;
+  }
+
+  destroy(){
+    this._userDetails = null;
+    this._listeners = null;
   }
 }
 
