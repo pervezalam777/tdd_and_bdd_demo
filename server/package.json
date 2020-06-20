@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "start:lower": "node -r esm index.js"
   },
   "keywords": [
     "Auth",
@@ -16,6 +17,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "nodemon": "^2.0.4"
   }
