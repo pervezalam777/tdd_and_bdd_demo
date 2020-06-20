@@ -10,7 +10,7 @@ const database = [
     username: 'vijay',
     password: 'password123',
     email: 'pervezalam777@gmail.com',
-    role: "admin"
+    role: "developer"
   }
 ]
 

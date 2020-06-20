@@ -17,6 +17,15 @@ This small demo project showcase Unit testing and Integration testing with the T
 * Add user credential in the required field
 * perform authentication through login button
 
+## Login credentials
+The following are two user credential that is used in this application.
+
+| User Name   | Password      |
+|-------------| --------------|
+| pervez      | password123   |
+| vijay       | password123   |
+
+NOTE: You can add more user credential vai adding object in ***server/db/data.js*** file
 
 ## How to run
 **Prerequisites**
