@@ -39,7 +39,7 @@ tdd_and_bdd_demo/client> npm install
 tdd_and_bdd_demo/e2e> npm install
 ```
 
-### Setup development environment
+### **Setup development environment**
 ```bash
 #If you have node >= 14.0.0 
 
@@ -53,27 +53,33 @@ tdd_and_bdd_demo/e2e> npm install
 > npm run dev:lower
 ```
 
-### Client unit test cases
+### **Setup client unit test cases**
 The following command will start karma in development mode which means any change will trigger the test runner again until manual exit from the terminal
 ```bash
 > npm run client:test
 ```
 
-### End to end test
+### **Setup End to end test**
+Step 1: Open terminal window at project root level
 ```bash
-# The following command will start end to end testing at once
+# The following command will start client, server, and webdriver
 #If you have node >= 14.0.0 
 
-> npm test
+> npm run ne2e:env
 
 #  Or
 
 #Previous version of node has experimental support for es module
 #So run the following command if your version below 14.0.0
 
-> npm run test:lower
+> npm run e2e:envlower
 ```
-NOTE: Some times first test case gets failed, it seems concurrently picks protractor before other parallel command execution completes. ***Will find solution for the same and will update the script.
+
+Step 2: Open another terminal window at project root level
+```bash
+> npm test
+```
+
 
 ## Out of scope 
 This is very basic login functionality so did not add following feature which may or may not implement in near future
