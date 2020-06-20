@@ -1,5 +1,7 @@
 //@ts-nocheck
-import { SCREENS } from '../../constants/screenConst.js'
+import { SCREENS } from '../../constants/screenConst.js';
+import { LOGIN_SUCCESS } from '../../constants/eventConst.js';
+
 class LoginPresenter {
   screenName = SCREENS.LOGIN
   

@@ -84,13 +84,61 @@ describe('Application model', () => {
     });
   })
 
-  xdescribe("User not logged in or logged out", () => {
+  describe("User not logged in", () => {
+    
     it('should return null as user name', () => {
-
+      expect(appModel.userName).toEqual(null); 
     });
-  })
+
+    it('should return null as token', () => {
+      expect(appModel.userToken).toEqual(null);
+    });
+
+    it('should return null as email', () => {
+      expect(appModel.userEmail).toEqual(null);
+    });
+
+    it('should return null as user role', () => {
+      expect(appModel.userRole).toEqual(null);
+    });
+  });
   
-  
+  describe("User logged out", () => {
+    const userObject = {
+      username:'pervez', 
+      token:'xyz', 
+      email:'pervezalam777@gmail.com', 
+      role:'admin'
+    }
+
+    beforeEach(() => {  
+      appModel.userDetails = userObject;
+    });
+
+    it('should return null as user name', () => {
+      expect(appModel.userName).toEqual(userObject.username);
+      appModel.logout();
+      expect(appModel.userName).toEqual(null); 
+    });
+
+    it('should return null as token', () => {
+      expect(appModel.userToken).toEqual(userObject.token);
+      appModel.logout();
+      expect(appModel.userToken).toEqual(null);
+    });
+
+    it('should return null as email', () => {
+      expect(appModel.userEmail).toEqual(userObject.email);
+      appModel.logout();
+      expect(appModel.userEmail).toEqual(null);
+    });
+
+    it('should return null as user role', () => {
+      expect(appModel.userRole).toEqual(userObject.role);
+      appModel.logout();
+      expect(appModel.userRole).toEqual(null);
+    });
+  });
 
   
 

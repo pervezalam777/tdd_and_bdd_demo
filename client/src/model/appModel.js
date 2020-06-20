@@ -82,18 +82,22 @@ class AppModel {
   }
   
   get userName() { 
-    return this._userDetails.username;
+    return this._userDetails ? this._userDetails.username : null;
   }
   get userToken() {
-    return this._userDetails.token;
+    return this._userDetails ? this._userDetails.token : null;
   }
  
   get userEmail(){
-    return this._userDetails.email;
+    return this._userDetails ? this._userDetails.email : null;
   }
 
   get userRole(){
-    return this._userDetails.role;
+    return this._userDetails ? this._userDetails.role : null;
+  }
+
+  logout(){
+    this._userDetails = null;
   }
 
   destroy(){
