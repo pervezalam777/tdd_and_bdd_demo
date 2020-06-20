@@ -17,7 +17,6 @@
  *  dispatchEvent(event:AppEvent)
  * }
  */
-import { LOGIN_SUCCESS } from '../constants/eventConst.js';
 import { hasPropertyWithType } from '../utils/utils.js';
 
 const userDetailsRequiredProperties = [
@@ -44,6 +43,10 @@ class AppModel {
   }
 
   registerListener(forEvent, listenerFunction){
+    if(!hasPropertyWithType({forEvent}, ['forEvent'], 'string') 
+      || !hasPropertyWithType({listenerFunction}, ['listenerFunction'], 'function')){
+        throw new Error('Invalid argument for register listener');
+      }
     if(!this._listeners[forEvent]){
       this._listeners[forEvent] = [listenerFunction];
       return true;

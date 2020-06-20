@@ -17,7 +17,7 @@
 
 ## Project initial setup
 ```bash
-# The following command initialize process for creation of package.json file
+# The following command will initialize the process for creation of package.json file
 > npm init
 
 # Install karma and Jasmine dependencies as development dependencies.
@@ -31,10 +31,10 @@
 Chrome 83.0.4103.97 (Windows 10)
 
 ## Design Principle
-* This application designed keeping SOLID principle in mind. 
+* This application is designed keeping SOLID principle in mind.
 
 ## Design Patterns
-This application uses the following design pattern to some extent
+This application uses the following design patterns:
 * Inversion of Control
 * Dependency Injection
 * Builder

@@ -140,6 +140,50 @@ describe('Application model', () => {
     });
   });
 
-  
+  describe('role as subscriber', () => {
+    const observer = {
+      callMe: () => {}
+    }
+    const handleLogin = () => {}
+
+    it('should throw error if register event called with invalid argument', () => {
+      const invalidList = [
+        {forEvent:10, listener:10},
+        {forEvent:true, listener:true},
+        {forEvent:{}, listener:{}},
+        {forEvent:[], listener:[]},
+        {forEvent:"abc", listener:null},
+        {forEvent:null, listener:() => {}},
+      ]
+
+      invalidList.forEach(({forEvent, listener}) => {
+        expect(() => {
+          console.log(forEvent, listener)
+          appModel.registerListener(forEvent, listener)
+        }).toThrow(new Error('Invalid argument for register listener'))
+      });
+    })
+
+    it('should be able to register listener for specified event type', () => {
+      
+    });
+
+    it('should not register same listener for same time', () => {
+
+    });
+
+    it('should be able to remove registered event listener', () => {
+
+    });
+
+    it('should not remove remove listener if event type miss match', () => {
+
+    })
+
+    it('should notify all listener(s) of defined event type on event dispatched ', () => {
+
+    });
+
+  })
 
 });

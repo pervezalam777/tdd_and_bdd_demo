@@ -113,6 +113,7 @@ describe('Login Presenter', () => {
         .and.returnValue(credential);
       const spyService = spyOn(loginService, 'doLogin').and.returnValue(Promise.resolve(result));
       const spyAppModel = spyOnProperty(appModel, 'userDetails', 'set').and.callThrough();
+      const spyAppModelDispatch = spyOn(appModel, 'dispatchEvent')
 
       await loginPresenterInstance.handleSubmit({preventDefault:()=>{}});
       
@@ -120,6 +121,7 @@ describe('Login Presenter', () => {
       expect(spyService).toHaveBeenCalled();
       expect(spyService).toHaveBeenCalledWith(credential);
       expect(spyAppModel).toHaveBeenCalled();
+      expect(spyAppModelDispatch).toHaveBeenCalled();
     })
 
     it('should show login error if login unsuccessful', async () => {

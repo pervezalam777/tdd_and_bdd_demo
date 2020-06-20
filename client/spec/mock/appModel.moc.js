@@ -9,6 +9,12 @@ class AppModelMock {
 
   set currentScreen(screen){}
   get currentScreen(){}
+
+  registerListener(forEvent, listenerFunction){}
+  removeListener(forEvent, listenerFunction){}
+  dispatchEvent(event){}
+  logout(){}
+  destroy(){}
 }
 
 export const AppModelMockFactory = {
