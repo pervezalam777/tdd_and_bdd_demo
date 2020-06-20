@@ -49,46 +49,61 @@ tdd_and_bdd_demo/e2e> npm install
 ```
 
 ### **Setup development environment**
+You can run development environment from the project root folder
 ```bash
-#If you have node >= 14.0.0 
+#If you have node >= 13.0.0 
 
-> npm run dev
+tdd_and_bdd_demo> npm run dev
 
 #  Or
 
 #Previous version of node has experimental support for es module
 #So run the following command if your version below 14.0.0
 
-> npm run dev:lower
+tdd_and_bdd_demo> npm run dev:lower
 ```
 
 ### **Setup client unit test cases**
 The following command will start karma in development mode which means any change will trigger the test runner again until manual exit from the terminal
 ```bash
-> npm run client:test
+tdd_and_bdd_demo> npm run client:test
 ```
 
 ### **Setup End to end test**
 Step 1: Open terminal window at project root level
 ```bash
-# The following command will start client, server, and webdriver
-#If you have node >= 14.0.0 
+# The following two command would required only once 
+tdd_and_bdd_demo> cd e2e
+tdd_and_bdd_demo> npm run update
 
-> npm run ne2e:env
+
+# The following command will start client, server, and webdriver
+#If you have node >= 13.0.0 
+
+tdd_and_bdd_demo> npm run ne2e:env
 
 #  Or
 
 #Previous version of node has experimental support for es module
 #So run the following command if your version below 14.0.0
 
-> npm run e2e:envlower
+tdd_and_bdd_demo> npm run e2e:envlower
 ```
 
 Step 2: Open another terminal window at project root level
 ```bash
-> npm test
+tdd_and_bdd_demo> npm test
 ```
 
+> **NOTE**: If your local npm package setup does not work for webdriver-manager, please install it globally. You would also need admin writes on your machine before executing the following commands
+```bash
+
+tdd_and_bdd_demo> npm install -g protractor
+
+#Then
+
+tdd_and_bdd_demo> webdriver-manager update
+```
 
 ## Out of scope 
 This is very basic login functionality so did not add following feature which may or may not implement in near future

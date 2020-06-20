@@ -31,6 +31,7 @@ class LoginPresenter {
     let credential = this._loginModel.credential;
     try {
       this._appModel.userDetails = await this._loginService.doLogin(credential);
+      this._appModel.dispatchEvent({type:LOGIN_SUCCESS});
     } catch(e){
       console.log(e);
       this._loginView.displayError(true, e.message);

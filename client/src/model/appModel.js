@@ -79,9 +79,6 @@ class AppModel {
       throw new Error('invalid user object');
     }
     this._userDetails = data;
-    setTimeout(() => {
-      this.dispatchEvent({type:LOGIN_SUCCESS});
-    }, 0)
   }
   
   get userName() { 

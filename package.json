@@ -4,10 +4,10 @@
   "description": "TDD, BDD, E2E demo application",
   "scripts": {
     "e2e:env": "concurrently -k \"cd e2e && npm run webdriverstart\" \"cd client && npm run start\" \"cd server && npm start\"",
-    "e2e:envlower": "concurrently -k \"cd e2e && npm run webdriverstart\" \"cd client && npm run start\" \"cd server && npm run start:lower\"  \"cd e2e && npm test\"",
+    "e2e:envlower": "concurrently -k \"cd e2e && npm run webdriverstart\" \"cd client && npm run start\" \"cd server && npm run start:lower\"",
     "test":"cd e2e && npm test",
-    "dev": "concurrently -k \"cd client && npm run start\" \"cd server && npm run start:lower\"",
-    "dev:lower": "concurrently -k \"cd client && npm run start\" \"cd server && npm start\"",
+    "dev": "concurrently -k \"cd client && npm run start\" \"cd server && npm run start\"",
+    "dev:lower": "concurrently -k \"cd client && npm run start\" \"cd server && npm start:lower\"",
     "client:test": "cd client && npm test"
   },
   "repository": {

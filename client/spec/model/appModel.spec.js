@@ -33,7 +33,7 @@ describe('Application model', () => {
     expect(userDetailsSpy).toHaveBeenCalled();
     // TODO: check if there is a better alternative of this.
     setTimeout(() => done(), 200);
-  })
+  });
 
   it('should through error if user details object is not valid', () => {
     const invalidUserDetailsObjects = [
@@ -46,12 +46,52 @@ describe('Application model', () => {
       {username:'pervez', token:'xyz', email:'pervezalam777@gmail.com'},
       //TODO: should also check if all properties are empty
       //{username:'', token:'', email:'', role:''}
-    ]
+    ];
 
     invalidUserDetailsObjects.forEach(userObject => {
       expect(() => {
         appModel.userDetails = userObject;
-      }).toThrow(new Error('invalid user object'))
-    })
+      }).toThrow(new Error('invalid user object'));
+    });
   })
+
+  describe("logged in user", () => {
+    const userObject = {
+      username:'pervez', 
+      token:'xyz', 
+      email:'pervezalam777@gmail.com', 
+      role:'admin'
+    }
+
+    beforeEach(() => {  
+      appModel.userDetails = userObject;
+    });
+
+    it('should return user name', () => {
+      expect(appModel.userName).toEqual(userObject.username);
+    });
+
+    it('should return user token', () => {
+      expect(appModel.userToken).toEqual(userObject.token);
+    });
+
+    it('should return user email', () => {
+      expect(appModel.userEmail).toEqual(userObject.email);
+    });
+
+    it('should return user role', () => {
+      expect(appModel.userRole).toEqual(userObject.role);
+    });
+  })
+
+  xdescribe("User not logged in or logged out", () => {
+    it('should return null as user name', () => {
+
+    });
+  })
+  
+  
+
+  
+
 });
