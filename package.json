@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "TDD, BDD, E2E demo application",
   "scripts": {
-    "test": "concurrently -k \"webdriver-manager start\" \"cd client && npm run start\" \"cd server && npm start\"  \"cd protractor && protractor conf/conf.js\"",
-    "dev": "concurrently -k \"cd client && npm run start\" \"cd server && npm start\"",
+    "test": "concurrently -k \"cd e2e && npm run webdriverstart\" \"cd client && npm run start\" \"cd server && npm start\"  \"cd e2e && npm test\"",
+    "test:lower": "concurrently -k \"cd e2e && npm run webdriverstart\" \"cd client && npm run start\" \"cd server && npm run start:lower\"  \"cd e2e && npm test\"",
+    "dev": "concurrently -k \"cd client && npm run start\" \"cd server && npm run start:lower\"",
+    "dev:lower": "concurrently -k \"cd client && npm run start\" \"cd server && npm start\"",
     "client:test": "cd client && npm test"
   },
   "repository": {
