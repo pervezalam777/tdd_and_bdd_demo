@@ -16,3 +16,7 @@ export function hasPropertyWithType(options, properties, type){
   }
   return false;
 }
+
+export function checkType(value, type){
+  return typeof value === type;
+}

@@ -17,7 +17,7 @@
  *  dispatchEvent(event:AppEvent)
  * }
  */
-import { hasPropertyWithType } from '../utils/utils.js';
+import { hasPropertyWithType, checkType } from '../utils/utils.js';
 
 const userDetailsRequiredProperties = [
   'username', 'token', 'email', 'role'
@@ -43,8 +43,8 @@ class AppModel {
   }
 
   registerListener(forEvent, listenerFunction){
-    if(!hasPropertyWithType({forEvent}, ['forEvent'], 'string') 
-      || !hasPropertyWithType({listenerFunction}, ['listenerFunction'], 'function')){
+    if(!checkType(forEvent, 'string') 
+      || !checkType(listenerFunction, 'function')){
         throw new Error('Invalid argument for register listener');
       }
     if(!this._listeners[forEvent]){

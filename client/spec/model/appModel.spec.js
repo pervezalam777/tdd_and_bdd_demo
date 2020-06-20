@@ -165,23 +165,44 @@ describe('Application model', () => {
     })
 
     it('should be able to register listener for specified event type', () => {
-      
+      const isRegistered = appModel.registerListener('login_success', handleLogin);
+      expect(isRegistered).toBeTrue();
     });
 
     it('should not register same listener for same time', () => {
+      let isRegistered = appModel.registerListener('login_success', handleLogin);
+      expect(isRegistered).toBeTrue();
 
+      isRegistered = appModel.registerListener('login_success', handleLogin);
+      expect(isRegistered).toBeFalse();
+
+      isRegistered = appModel.registerListener('login_success', observer.callMe);
+      expect(isRegistered).toBeTrue();
     });
 
     it('should be able to remove registered event listener', () => {
+      let isRegistered = appModel.registerListener('login_success', handleLogin);
+      expect(isRegistered).toBeTrue();
+
+      isRegistered = appModel.removeListener('login_success', handleLogin)
+      expect(isRegistered).toBeTrue();
 
     });
 
-    it('should not remove remove listener if event type miss match', () => {
+    it('should not remove listener if event type miss match', () => {
+      let isRegistered = appModel.registerListener('login_success', handleLogin);
+      expect(isRegistered).toBeTrue();
 
+      isRegistered = appModel.removeListener('logout', handleLogin)
+      expect(isRegistered).toBeFalse();
     })
 
     it('should notify all listener(s) of defined event type on event dispatched ', () => {
+      const listenerSpyOne = spyOn(observer, 'callMe');
+      appModel.registerListener('login_success', observer.callMe);
 
+      appModel.dispatchEvent({type: 'login_success'});
+      expect(listenerSpyOne).toHaveBeenCalled();
     });
 
   })
